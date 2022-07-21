@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import { gameSubject, initGame, resetGame } from "./Game";
 import Board from "./Board";
