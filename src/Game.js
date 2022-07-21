@@ -1,8 +1,6 @@
 import * as Chess from 'chess.js'
 import { BehaviorSubject } from 'rxjs'
 
-
-
 const chess = new Chess()
 
 export const gameSubject = new BehaviorSubject()
@@ -64,19 +62,19 @@ function updateGame(pendingPromotion) {
 }
 function getGameResult() {
     if (chess.in_checkmate()) {
-        const winner = chess.turn() === "w" ? 'BLACK' : 'WHITE'
-        return `CHECKMATE - WINNER - ${winner}`
+        const winner = chess.turn() === "w" ? 'Чёрные' : 'Белые'
+        return `МАТ - ПОБЕДИТЕЛЬ - ${winner}`
     } else if (chess.in_draw()) {
-        let reason = '50 - MOVES - RULE'
+        let reason = 'ПРАВИЛО - 50 - ХОДОВ'
         if (chess.in_stalemate()) {
-            reason = 'STALEMATE'
+            reason = 'БЕЗВЫХОДНОЕ ПОЛОЖЕНИЕ'
         } else if (chess.in_threefold_repetition()) {
-            reason = 'REPETITION'
+            reason = 'ПОВТОРЕНИЕ ХОДОВ'
         } else if (chess.insufficient_material()) {
-            reason = "INSUFFICIENT MATERIAL"
+            reason = "НЕДОСТАТОК ФИГУР"
         }
-        return `DRAW - ${reason}`
+        return `РЕЗУЛЬТАТ - ${reason}`
     } else {
-        return 'UNKNOWN REASON'
+        return 'НЕИЗВЕСТНО'
     }
 }
