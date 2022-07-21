@@ -3,12 +3,25 @@
     padding: 0;
 }
 
-.container {
+.wrapper {
     min-height: 100vh;
+    background-color: rgb(34, 34, 34);
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(34, 34, 34);
+    flex-direction: column;
+}
+
+.wrapper h1 {
+    margin-bottom: 20px;
+    color: lightgoldenrodyellow;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
 .board-container {
